@@ -153,6 +153,9 @@ function vender () {
                     if (quantidadePacote.value >0) {
                         estoqueLocal[indiceVenda].pacotes = estoqueLocal[indiceVenda].pacotes - Number(quantidadePacote.value)
                         estoqueLocal[indiceVenda.quantidadeKG = estoqueLocal[indiceVenda].quantidadeKG - estoqueLocal[indiceVenda].quantidadeKgCadaPacote]
+                        if (!btnSwitch.checked) {
+                            salvarLocal()
+                        }
                     }
                     divPai.innerHTML = ``
                     section.innerHTML = ``
@@ -234,6 +237,12 @@ function entrada() {
             estoqueLocal[indiceEntrada].quantidadeKG = estoqueLocal[indiceEntrada].quantidadeKG + Number(inputEntrada.value)
             estoqueLocal[indiceEntrada].pacotes = (estoqueLocal[indiceEntrada].pacotes) + (Number(inputPacote.value))
             //aqui vai comando para salvar o estque localmente
+            if (!btnConfirmar.checked) {
+                salvarLocal()
+            }
+            divPai.innerHTML = ``
+            section.innerHTML = ``
+            inicioEstoque()
             alert(`Entrada Efetuada com Sucesso!`)
             divPai.innerHTML = ``
         }
