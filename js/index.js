@@ -165,9 +165,7 @@ function vender () {
                     //aqui vai o comando para salvar localmente a estoque
                     // section.removeChild(divPai)
                 }
-            }
-
-            
+            }          
         } else {
             alert(`[ERRO] Confirme as informações e tente Novamente`)
         }
@@ -499,6 +497,7 @@ function consultaEstoque() {
     }
     mostrador.innerText = ``
     for(i=0; estoqueLocal.length > i; i++) {
+        let resultadoEstoque = ``
         resultadoEstoque += ` Categoria: ${estoqueLocal[i].categoria},
         Nome: ${estoqueLocal[i].nome},
         Quantidade de Kg's: ${estoqueLocal[i].quantidadeKG},
