@@ -131,8 +131,8 @@ function vender () {
     //venda
     btnConfirmar.addEventListener(`click`, () => {
         if (produtoVendido.value !== `` || quantidadeVenda.value !== ``) {
-            let saidaProduto = produtoVendido.value.toLowerCase()
-                saidaProduto.toLowerCase()
+            let saidaProduto = produtoVendido.value.toLowerCase().trim()
+                saidaProduto.toLowerCase().trim()
             if (quantidadePacote == ``) {
                 quantidadePacote = 0
             }
@@ -140,7 +140,7 @@ function vender () {
                 alert(`[ERRO] Verifique as Quantidades Informada`)
                 return
             }
-            const indiceVenda = estoqueLocal.findIndex(produto => produto.nome.toLowerCase() === saidaProduto)
+            const indiceVenda = estoqueLocal.findIndex(produto => produto.nome.toLowerCase().trim() === saidaProduto)
             if (indiceVenda === -1 || indiceVenda === undefined) {
                 alert(`[ERRO] Verifique o nome do produto informado!`)
             } else {
@@ -224,8 +224,8 @@ function entrada() {
             alert(`[ERRO] Verifique as informações`)
             return
         } 
-        let EntradaProduto = inputName.value.toLowerCase()
-        const indiceEntrada = estoqueLocal.findIndex(produto => produto.nome.toLowerCase() === EntradaProduto)
+        let EntradaProduto = inputName.value.toLowerCase().trim()
+        const indiceEntrada = estoqueLocal.findIndex(produto => produto.nome.toLowerCase().trim() === EntradaProduto)
         if( indiceEntrada === -1 || indiceEntrada === undefined) {
             alert(`[ERRO] Verifique o nome informado`)
         } else {
@@ -310,8 +310,8 @@ function cadastro() {
             alert(`[ERRO] Quantidades precisam ser Superiores a 0`)
             return
         }
-        let cadastroProduto = inputNomeProduto.value.toLowerCase()
-        const indiceCadastro = estoqueLocal.findIndex(produto => produto.nome.toLowerCase() === cadastroProduto)
+        let cadastroProduto = inputNomeProduto.value.toLowerCase().trim()
+        const indiceCadastro = estoqueLocal.findIndex(produto => produto.nome.toLowerCase().trim() === cadastroProduto)
         if( indiceCadastro === -1 || indiceCadastro === undefined) {
             estoqueLocal.push({nome: inputNomeProduto.value, categoria: inputCategoria.value, quantidadeKG: Number(inputQuantidade.value), quantidadeKgCadaPacote: Number(inputQuantidadeKgPct.value), pacotes: Number(inputQuantidadePct.value)},
             )
@@ -390,8 +390,8 @@ function consulta() {
                 if ( inputPesquisa.value === ``) {
                     alert(`[ERRO] Digite um nome valido`)
                 } else {
-                let pesquisaPorNome = inputPesquisa.value.toLowerCase()
-                const indicePesquisa = estoqueLocal.findIndex(produto => produto.nome.toLowerCase() === pesquisaPorNome)
+                let pesquisaPorNome = inputPesquisa.value.toLowerCase().trim()
+                const indicePesquisa = estoqueLocal.findIndex(produto => produto.nome.toLowerCase().trim() === pesquisaPorNome)
                     if (indicePesquisa === -1 || indicePesquisa === undefined) {
                         alert(`[ERRO] Verifique o nome Digitado`)
                         return
@@ -430,14 +430,12 @@ function consulta() {
                             alert(`[ERRO] Verifique o nome Digitado`) 
                             return
                         } else {
-                            console.log(pesquisaPorCategoria)
                              let resultadoPesquisaCategoria =  estoqueLocal.filter((value) =>{
-                               return value.categoria.toLowerCase().includes(pesquisaPorCategoria)
+                               return value.categoria.toLowerCase().trim().includes(pesquisaPorCategoria)
                              })
-                             console.log(resultadoPesquisaCategoria)
-                            for(i=0; pesquisaPorCategoria.length > i; i++) {
+                            for(i=0; resultadoPesquisaCategoria.length > i; i++) {
                             let pesquisaPorCategoria = ``
-                                pesquisaPorCategoria += ` Categoria: ${estoqueLocal[i].categoria},
+                                pesquisaPorCategoria += ` Categoria: ${resultadoPesquisaCategoria[i].categoria},
                                 Nome: ${resultadoPesquisaCategoria[i].nome},
                                 Quantidade de Kg's: ${resultadoPesquisaCategoria[i].quantidadeKG},
                                 Quantidade de Kg em cada Pacote: ${resultadoPesquisaCategoria[i].quantidadeKgCadaPacote},
