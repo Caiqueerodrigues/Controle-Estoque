@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+@media (min-width: 505px)  and (max-width: 768px)  {
+    #inicio {
+        max-height: 98vh;
+    }
+}
+
+@media (min-width: 768px) {
+    section, #inicio {
+        max-width: 600px ;
+        margin: auto;
+    }
+    .separador {
+        max-width: 590px;
+    }
+
+    #janela {
+        margin-left: 80px;
+    }
+}
