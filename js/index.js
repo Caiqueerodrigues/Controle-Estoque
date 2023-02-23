@@ -31,7 +31,6 @@ let divPai = ``
 let mostrador = document.getElementById(`mostrador`)
 let janela = document.getElementById(`janela`)
 let btnSwitch = document.getElementById(`flexSwitchCheckChecked`)
-let resultadoPesquisa = ``
 
 //inicio
 let divInicio = document.getElementById(`inicio`)
@@ -395,6 +394,7 @@ function consulta() {
                         alert(`[ERRO] Verifique o nome Digitado`)
                         return
                     } else {
+                        let resultadoPesquisa = ``
                         resultadoPesquisa = ` Categoria: ${estoqueLocal[indicePesquisa].categoria},
                         Nome: ${estoqueLocal[indicePesquisa].nome},
                         Quantidade de Kg's: ${estoqueLocal[indicePesquisa].quantidadeKG},
@@ -428,7 +428,8 @@ function consulta() {
                         return
                     } else {
                         for(i=0; estoqueLocal.length > i; i++) {
-                            resultadoPesquisa += ` Categoria: ${estoqueLocal[i].categoria},
+                            let pesquisaPorCategoria = ``
+                            pesquisaPorCategoria += ` Categoria: ${estoqueLocal[i].categoria},
                             Nome: ${estoqueLocal[i].nome},
                             Quantidade de Kg's: ${estoqueLocal[i].quantidadeKG},
                             Quantidade de Kg em cada Pacote: ${estoqueLocal[i].quantidadeKgCadaPacote},
@@ -436,7 +437,7 @@ function consulta() {
                             
                             section.style.height=`max-content`
                             janela.style.display=`block`
-                            mostrador.innerText += resultadoPesquisa
+                            mostrador.innerText += pesquisaPorCategoria
                         }
                     }
                 }
@@ -463,7 +464,8 @@ function consulta() {
                         return
                     } else {
                         for(i=0; estoqueLocal.length > i; i++) {
-                            resultadoPesquisa += ` Categoria: ${estoqueLocal[i].categoria},
+                            let pesquisaPorQuantidade
+                            pesquisaPorQuantidade += ` Categoria: ${estoqueLocal[i].categoria},
                             Nome: ${estoqueLocal[i].nome},
                             Quantidade de Kg's: ${estoqueLocal[i].quantidadeKG},
                             Quantidade de Kg em cada Pacote: ${estoqueLocal[i].quantidadeKgCadaPacote},
@@ -471,7 +473,7 @@ function consulta() {
                             
                             section.style.height=`max-content`
                             janela.style.display=`block`
-                            mostrador.innerText += resultadoPesquisa
+                            mostrador.innerText += pesquisaPorQuantidade
                         }
                     }
                 }
@@ -490,7 +492,7 @@ function consultaEstoque() {
     }
     mostrador.innerText = ``
     for(i=0; estoqueLocal.length > i; i++) {
-        resultadoPesquisa += ` Categoria: ${estoqueLocal[i].categoria},
+        resultadoEstoque += ` Categoria: ${estoqueLocal[i].categoria},
         Nome: ${estoqueLocal[i].nome},
         Quantidade de Kg's: ${estoqueLocal[i].quantidadeKG},
         Quantidade de Kg em cada Pacote: ${estoqueLocal[i].quantidadeKgCadaPacote},
@@ -498,8 +500,8 @@ function consultaEstoque() {
         
         section.style.height=`max-content`
         janela.style.display=`block`
-        mostrador.innerText += resultadoPesquisa
-        console.log(estoqueLocal[i])
+        mostrador.innerText += resultadoEstoque
+        // console.log(estoqueLocal[i])
 
     }
     document.getElementById(`fechar`).addEventListener(`click`, () => {
