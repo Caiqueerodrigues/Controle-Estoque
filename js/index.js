@@ -416,7 +416,8 @@ function consulta() {
                 inputPesquisa.type=`text`
                 inputPesquisa.placeholder=`Categoria do Produto`
                 inputPesquisa.classList.add(`inputs`)
-            section.append(inputPesquisa, btnConfirmar)
+            divPai.append(inputPesquisa, btnConfirmar)
+            section.append(divPai)
             btnConfirmar.addEventListener(`click`, () => {
                 if ( inputPesquisa.value === ``) {
                     alert(`[ERRO] Digite uma Categoria válida`)
@@ -437,6 +438,7 @@ function consulta() {
                             
                             section.style.height=`max-content`
                             janela.style.display=`block`
+                            console.log(estoqueLocal[indicePesquisa])
                             mostrador.innerText += pesquisaPorCategoria
                         }
                     }
@@ -452,7 +454,8 @@ function consulta() {
                 inputPesquisa.placeholder=`Kg por Saco`
                 inputPesquisa.style.width=`120px`
                 inputPesquisa.classList.add(`inputs`)
-            section.append(inputPesquisa, btnConfirmar)
+            divPai.append(inputPesquisa, btnConfirmar)
+            section.append(divPai)
             btnConfirmar.addEventListener(`click`, () => {
                 if ( inputPesquisa.value === ``) {
                     alert(`[ERRO] Digite uma Categoria válida`)
@@ -463,18 +466,13 @@ function consulta() {
                         alert(`[ERRO] Verifique a Quantidade informada`)
                         return
                     } else {
-                        for(i=0; estoqueLocal.length > i; i++) {
-                            let pesquisaPorQuantidade
-                            pesquisaPorQuantidade += ` Categoria: ${estoqueLocal[i].categoria},
-                            Nome: ${estoqueLocal[i].nome},
-                            Quantidade de Kg's: ${estoqueLocal[i].quantidadeKG},
-                            Quantidade de Kg em cada Pacote: ${estoqueLocal[i].quantidadeKgCadaPacote},
-                            Quantidade de Pacotes ${estoqueLocal[i].pacotes} \n\n`
-                            
-                            section.style.height=`max-content`
-                            janela.style.display=`block`
-                            mostrador.innerText += pesquisaPorQuantidade
-                        }
+                        section.style.height=`max-content`
+                        janela.style.display=`block`
+                        mostrador.innerText = `Categoria: ${estoqueLocal[indicePesquisa].categoria}
+                        Nome: ${estoqueLocal[indicePesquisa].nome}
+                        Quantidade Kg: ${estoqueLocal[indicePesquisa].quantidadeKG}
+                        Quantidade Kg Pacote: ${estoqueLocal[indicePesquisa].quantidadeKgCadaPacote}
+                        Pacotes: ${estoqueLocal[indicePesquisa].pacotes}`
                     }
                 }
             })
@@ -482,7 +480,7 @@ function consulta() {
         document.getElementById(`fechar`).addEventListener(`click`, () => {
             mostrador.innerText = ``
             janela.style.display=`none`
-            divPai.removeChild(inputPesquisa, btnConfirmar)
+            divPai.innerHTML = ``
         })
     })
 }
