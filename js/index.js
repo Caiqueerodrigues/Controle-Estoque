@@ -20,7 +20,6 @@ var estoqueLocal = [{
     pacotes: 4
 }]
 // var estoqueLocal = 
-// console.log(estoqueLocal)
 
 
 const br = document.createElement(`br`)
@@ -40,7 +39,6 @@ let btnLimpar = document.getElementById(`limparDados`)
 //inicio Escolha de dados
 function escolher () {
     if(!btnSwitch.checked) {
-        console.log(localStorage)
         if(localStorage.length === 0) {
             salvarLocal()
         } else {
@@ -133,8 +131,8 @@ function vender () {
     //venda
     btnConfirmar.addEventListener(`click`, () => {
         if (produtoVendido.value !== `` || quantidadeVenda.value !== ``) {
-            let saidaProduto = produtoVendido.value
-            console.log(saidaProduto, produtoVendido)
+            let saidaProduto = produtoVendido.value.toLowerCase()
+                saidaProduto.toLowerCase()
             if (quantidadePacote == ``) {
                 quantidadePacote = 0
             }
@@ -142,7 +140,7 @@ function vender () {
                 alert(`[ERRO] Verifique as Quantidades Informada`)
                 return
             }
-            const indiceVenda = estoqueLocal.findIndex(produto => produto.nome === saidaProduto)
+            const indiceVenda = estoqueLocal.findIndex(produto => produto.nome.toLowerCase() === saidaProduto)
             if (indiceVenda === -1 || indiceVenda === undefined) {
                 alert(`[ERRO] Verifique o nome do produto informado!`)
             } else {
@@ -155,14 +153,12 @@ function vender () {
                         estoqueLocal[indiceVenda.quantidadeKG = estoqueLocal[indiceVenda].quantidadeKG - estoqueLocal[indiceVenda].quantidadeKgCadaPacote]
                         if (!btnSwitch.checked) {
                             salvarLocal()
-                            console.log(btnSwitch)
                         }
                     }
                     divPai.innerHTML = ``
                     section.innerHTML = ``
                     inicioEstoque()
                     alert(`Venda Confirmada`)
-                    console.log(estoqueLocal)
                     //aqui vai o comando para salvar localmente a estoque
                     // section.removeChild(divPai)
                 }
@@ -229,7 +225,7 @@ function entrada() {
             return
         } 
         let EntradaProduto = inputName.value.toLowerCase()
-        const indiceEntrada = estoqueLocal.findIndex(produto => produto.nome === EntradaProduto)
+        const indiceEntrada = estoqueLocal.findIndex(produto => produto.nome.toLowerCase() === EntradaProduto)
         if( indiceEntrada === -1 || indiceEntrada === undefined) {
             alert(`[ERRO] Verifique o nome informado`)
         } else {
@@ -308,7 +304,6 @@ function cadastro() {
         }
         if (inputQuantidade.value === `` || inputQuantidadeKgPct.value === `` || inputQuantidadePct.value === ``) {
             alert(`[ERRO] Quantidades precisam ser Preenchidas`)
-            console.log(inputQuantidade.value, inputQuantidadeKgPct.value, inputQuantidadePct.value)
             return
         }
         if (inputQuantidade.value <= 0 || inputQuantidadeKgPct.value <= 0 || inputQuantidadePct.value <= 0) {
@@ -316,11 +311,10 @@ function cadastro() {
             return
         }
         let cadastroProduto = inputNomeProduto.value.toLowerCase()
-        const indiceCadastro = estoqueLocal.findIndex(produto => produto.nome === cadastroProduto)
+        const indiceCadastro = estoqueLocal.findIndex(produto => produto.nome.toLowerCase() === cadastroProduto)
         if( indiceCadastro === -1 || indiceCadastro === undefined) {
             estoqueLocal.push({nome: inputNomeProduto.value, categoria: inputCategoria.value, quantidadeKG: Number(inputQuantidade.value), quantidadeKgCadaPacote: Number(inputQuantidadeKgPct.value), pacotes: Number(inputQuantidadePct.value)},
             )
-            console.log(estoqueLocal)
             alert(`Cadastro de Produto Realizado com sucesso`)
             //aqui vai o comando para salvar localmente
             divPai.innerHTML = ``
@@ -396,8 +390,8 @@ function consulta() {
                 if ( inputPesquisa.value === ``) {
                     alert(`[ERRO] Digite um nome valido`)
                 } else {
-                let pesquisaPorNome = inputPesquisa.value
-                const indicePesquisa = estoqueLocal.findIndex(produto => produto.nome === pesquisaPorNome)
+                let pesquisaPorNome = inputPesquisa.value.toLowerCase()
+                const indicePesquisa = estoqueLocal.findIndex(produto => produto.nome.toLowerCase() === pesquisaPorNome)
                     if (indicePesquisa === -1 || indicePesquisa === undefined) {
                         alert(`[ERRO] Verifique o nome Digitado`)
                         return
@@ -430,8 +424,8 @@ function consulta() {
                 if ( inputPesquisa.value === ``) {
                     alert(`[ERRO] Digite uma Categoria válida`)
                 } else {
-                let pesquisaPorCategoria = inputPesquisa.value
-                const indicePesquisa = estoqueLocal.findIndex(produto => produto.categoria === pesquisaPorCategoria.toLowerCase())
+                let pesquisaPorCategoria = inputPesquisa.value.toLowerCase()
+                const indicePesquisa = estoqueLocal.findIndex(produto => produto.categoria.toLowerCase() === pesquisaPorCategoria.toLowerCase())
                     if (indicePesquisa === -1 || indicePesquisa === undefined) {
                         alert(`[ERRO] Verifique o nome Digitado`)
                         return
@@ -446,7 +440,6 @@ function consulta() {
                             
                             section.style.height=`max-content`
                             janela.style.display=`block`
-                            console.log(estoqueLocal[indicePesquisa])
                             mostrador.innerText += pesquisaPorCategoria
                         }
                     }
@@ -508,7 +501,6 @@ function consultaEstoque() {
         section.style.height=`max-content`
         janela.style.display=`block`
         mostrador.innerText += resultadoEstoque
-        // console.log(estoqueLocal[i])
 
     }
     document.getElementById(`fechar`).addEventListener(`click`, () => {
