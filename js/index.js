@@ -1,19 +1,19 @@
 var estoqueLocal = [{
-    nome: `exemplo de ração`,
+    nome: `Exemplo de ração`,
     categoria: `ração`,
     quantidadeKgCadaPacote: 15,
     quantidadeKG: 30,
     pacotes: 2
 },
 {
-    nome: `luck dog`,
+    nome: `Luck dog`,
     categoria: `ração`,
     quantidadeKgCadaPacote: 10,
     quantidadeKG: 40,
     pacotes: 4
 },
 {
-    nome: `mix`,
+    nome: `Mix`,
     categoria: `ração`,
     quantidadeKgCadaPacote: 5,
     quantidadeKG: 20,
@@ -133,7 +133,8 @@ function vender () {
     //venda
     btnConfirmar.addEventListener(`click`, () => {
         if (produtoVendido.value !== `` || quantidadeVenda.value !== ``) {
-            let saidaProduto = produtoVendido.value.toLowerCase()
+            let saidaProduto = produtoVendido.value
+            console.log(saidaProduto, produtoVendido)
             if (quantidadePacote == ``) {
                 quantidadePacote = 0
             }
