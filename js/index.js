@@ -1,20 +1,20 @@
 var estoqueLocal = [{
     nome: `Exemplo de ração`,
-    categoria: `ração`,
+    categoria: `Ração`,
     quantidadeKgCadaPacote: 15,
     quantidadeKG: 30,
     pacotes: 2
 },
 {
     nome: `Luck dog`,
-    categoria: `ração`,
+    categoria: `Ração`,
     quantidadeKgCadaPacote: 10,
     quantidadeKG: 40,
     pacotes: 4
 },
 {
     nome: `Mix`,
-    categoria: `ração`,
+    categoria: `Ração`,
     quantidadeKgCadaPacote: 5,
     quantidadeKG: 20,
     pacotes: 4
