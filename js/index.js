@@ -78,7 +78,6 @@ function inicioEstoque() {
             qtd.id = i
             qtd.classList.add(`estoque`)
             qtd.innerText = estoqueLocal[i].quantidadeKG
-            console.log(i)
 
     
         divSeparador1.append(pCategoria, pNome, qtd)
@@ -155,6 +154,7 @@ function vender () {
                         estoqueLocal[indiceVenda.quantidadeKG = estoqueLocal[indiceVenda].quantidadeKG - estoqueLocal[indiceVenda].quantidadeKgCadaPacote]
                         if (!btnSwitch.checked) {
                             salvarLocal()
+                            console.log(btnSwitch)
                         }
                     }
                     divPai.innerHTML = ``
