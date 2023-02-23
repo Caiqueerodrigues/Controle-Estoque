@@ -424,8 +424,8 @@ function consulta() {
                 if ( inputPesquisa.value === ``) {
                     alert(`[ERRO] Digite uma Categoria válida`)
                 } else {
-                    let pesquisaPorCategoria = inputPesquisa.value.toLowerCase()
-                    const indicePesquisa = estoqueLocal.findIndex(produto => produto.categoria.toLowerCase() === pesquisaPorCategoria)
+                    let pesquisaPorCategoria = inputPesquisa.value.toLowerCase().trim()
+                    const indicePesquisa = estoqueLocal.findIndex(produto => produto.categoria.toLowerCase().trim() === pesquisaPorCategoria)
                         if (indicePesquisa === -1 || indicePesquisa === undefined) {
                             alert(`[ERRO] Verifique o nome Digitado`) 
                             return
