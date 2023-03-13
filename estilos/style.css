@@ -8,13 +8,34 @@
 }
 
 :root {
-    --color1: #000;
-    --color2: #f00;
+    --color1: #221000;
+    --color2: #860B07;
+    --golden1: #825200;
+    --golden2: #F8F25F;
+    --golden3: #b98f05;
+    --golden4:  #c79746;
+    --golden5: #F8F25F;
 }
 
 body, html {
+    background: linear-gradient(#460009, #660103, #460009);
     width: 96vw;
     height: 100vh;
+    color: #311016;
+    margin: auto;
+    text-align: center;
+}
+
+h6 {
+    background: -webkit-linear-gradient(var(--golden1), var(--golden2), var(--golden1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-family: arial;
+}
+
+hr {
+    color: var(--golden3);
 }
 
 section, .vendaDiv {
@@ -27,16 +48,63 @@ section, .btn-outline-danger, #limparDados {
     display: none;
 }
 
+.btn-outline-danger:hover {
+    background: linear-gradient(var(--golden1), var(--golden2), var(--golden1));
+    border-color: var(--golden1);
+    color: var(--color1);
+}
+
+#limparDados {
+    background: linear-gradient(var(--golden1), var(--golden2), var(--golden1));
+    border-color: var(--golden1);
+    color: var(--color1);
+}
+
+.m-3 {
+    border-color: var(--color2);
+    color: var(--color2);
+}
+
+.m-3:hover {
+    color: var(--golden3);
+    background: var(--color2);
+    border-color: var(--golden3);
+}
+
+.m-1 {
+    border-color: var(--golden3);
+    color: var(--golden3);
+}
+
+h1 {
+    background: -webkit-linear-gradient(var(--golden1), var(--golden2), var(--golden1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-family: arial;
+}
+
 #inicio {
+    background: linear-gradient(var(--golden1), var(--golden2), var(--golden1));
+    border-radius: 4%;
     min-height: 60vh;
     max-height: 60vh;
     text-align: center;
     font-weight: bolder;
 }
+
+.form-switch .form-check-input:checked{
+    background-color: #960B04;
+    border-color: var(--color1);
+}
+
 .form-check-input {
     margin-top: 30px;
     margin-left: 10px !important;
+    background-color: var(--golden2);
+    border-color: var(--color1);
 }
+
 .form-check {
     display: flex;
     flex-direction: row;
@@ -44,22 +112,27 @@ section, .btn-outline-danger, #limparDados {
     padding: 0 20px !important;
     max-width: 300px;
     margin: auto;
-}
-#semDados, #comDados {
-    width: min-content;
-    margin: 0 30px 40px;
+    
 }
 
 .separador {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid rgba(36, 35, 35, 0.521);
+    border: 2px solid var(--golden1);
     margin: 5px 20px;
     width: 90vw;
     height: max-content;
     padding: 5px;
     display: none;
+}
+
+.separador > p {
+    background: -webkit-linear-gradient(var(--golden1), var(--golden2), var(--golden1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-family: arial;
 }
 #separador0{
     display: none;
@@ -74,11 +147,11 @@ section, .btn-outline-danger, #limparDados {
 }
 
 .estoque {
-   border: 1px solid var(--color1);
-   padding: 0 2px;
+   border: 1px solid var(--golden3);
    border-radius: 5px;
    width: 50px;
    box-shadow: 3px 3px 5px var(--color1);
+   color: var(--golden3);
 }
 
 .inputs{
@@ -86,6 +159,9 @@ section, .btn-outline-danger, #limparDados {
     margin: 10px auto;
     box-shadow: 1px 1px 3px var(--color1);
     text-transform: capitalize;
+    border-color: var(--golden4);
+    background: linear-gradient(var(--golden4), var(--golden2), var(--golden4));
+    color: #221000;
 }
 
 #janela {
@@ -95,10 +171,10 @@ section, .btn-outline-danger, #limparDados {
     margin: -400px 20px;
     padding: 20px;
     position: absolute;
-    border: 2px solid #000000b0;
+    border: 2px solid --golden1;
     border-radius: 20px;
-    box-shadow: 2px 2px 5px #000000af;
-    background-color: #c2bfbfee;
+    box-shadow: 2px 2px 5px var(--color1);
+    background: linear-gradient(var(--golden1), var(--golden2), var(--golden1));
     color: var(--color1);
     display: none;
     font-weight: bolder;
@@ -107,9 +183,9 @@ section, .btn-outline-danger, #limparDados {
 #janela > #fechar {
     border-radius: 50%;
     padding: 2px 6px;
-    color: var(--color2);
+    color: var(--golden2);
     font-weight: bolder;
-    background-color: #c2bfbfee;
+    background-color: var(--color2) ;
     margin-left: 96%;
 
 }
@@ -121,14 +197,50 @@ section, .btn-outline-danger, #limparDados {
 }
 
 footer {
-    color: #000;
-    font-weight: bolder;
+    background: -webkit-linear-gradient(var(--golden1), var(--golden2), var(--golden1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-family: arial;
 }
 footer > p > a {
-    text-decoration: none;
-    color: #000;
+    background: -webkit-linear-gradient(var(--golden1), var(--golden2), var(--golden1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-family: arial;
 }
+
 p > a:hover {
-    color: #00f;
+    color: var(--color1);
     transition: .5s;
+}
+
+button.btn.btn-outline-success {
+    background-color: var(--color2);
+    border-color: var(--color2);
+    color: var(--golden2);
+}
+
+button.btn.btn-outline-success:hover {
+    background: -webkit-linear-gradient(var(--golden1), var(--golden2), var(--golden1));
+    border-color: var(--golden1);
+    color: var(--color1) ;
+}
+
+
+
+label {
+    color: var(--golden2);
+}
+
+.vendaDiv {
+    text-align: center;
+    font-family: arial;
+    font-style: bolder;
+    color: var(--golden2);
+}
+
+.radio {
+    accent-color: var(--color2);
 }

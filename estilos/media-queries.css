@@ -18,4 +18,45 @@
     #janela {
         margin-left: 80px;
     }
+
+    p.p-3 {
+        font-size: 16pt;
+    }
+}
+
+@media (min-width: 1024px) and (min-height: 768px){
+    p.p-3 {
+        font-size: 18pt;
+        margin-bottom: 80px;
+    }
+
+    .m-3 {
+        height: 4rem;
+        width: 6rem;
+        font-size: 13pt;
+        text-align: center;
+    }
+}
+
+@media (min-width: 2560px) and (min-height: 1640px) {
+    #inicio {
+        height: 70vh;
+        width: 100vh;
+    }
+
+    p {
+        font-size: 2rem;
+    }
+
+    p.p-3 {
+        font-size: 7rem;
+        margin-bottom: 80px;
+    }
+
+    .m-3 {
+        height: 5rem;
+        width: 7rem;
+        font-size: 13pt;
+        text-align: center;
+    }
 }
